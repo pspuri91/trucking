@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="md:flex justify-between items-center">
           <div className="mb-6 md:mb-0">
             <h3 className="text-2xl font-semibold mb-2 flex items-center">
-              <Image src="/assets/logo.png" alt="Chatwal Trucking Logo" width="150" height="20" objectFit="cover" quality={100} priority />
+              <Image src="/assets/logo.webp" alt="Chatwal Trucking Logo" width="150" height="20" objectFit="cover" quality={100} priority />
             </h3>
             <p className="text-blue-900">Your Reliable Supply Chain Partner Since 2010</p>
           </div>

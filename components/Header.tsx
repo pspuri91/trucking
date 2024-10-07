@@ -45,12 +45,12 @@ const Header = ({defClass=""}) => {
       <nav className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           <Link href="/" className="text-2xl font-bold text-blue-900 flex items-center">
-            <Image src="/assets/logo.png" alt="Chatwal Trucking Logo" width="150" height="20" objectFit="cover" quality={100} priority />
+            <Image src="/assets/logo.webp" alt="Chatwal Trucking Logo" width="150" height="20" objectFit="cover" quality={100} priority />
           </Link>
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               item.href === '/get-a-quote' ? (
-                <Button key={item.href} asChild variant="outline">
+                <Button key={item.href} asChild variant="outline" className="bg-white text-gray-700 hover:text-white hover:bg-blue-900 transition duration-300">
                   <Link href={item.href}>{item.label}</Link>
                 </Button>
               ) : (

@@ -31,7 +31,7 @@ const Hero = () => {
         style={{ y, opacity, scale }} 
         className="absolute inset-0 z-0"
       >
-        <Image src="/assets/hero.jpg" alt="Trucking on Canadian highway" layout="fill" objectFit="cover" quality={100} priority />
+        <Image src="/assets/hero.webp" alt="Trucking on Canadian highway" layout="fill" objectFit="cover" quality={100} priority />
       </motion.div>
       <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
       <div className="relative z-20 text-center text-white max-w-5xl mx-auto px-6">
@@ -57,13 +57,13 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="flex justify-center space-x-4"
         >
-          <Button asChild size="lg">
-            <Link href="/get-a-quote" className="bg-blue-600 text-white hover:bg-blue-700 transition duration-300">
+          <Button asChild variant="outline" size="lg">
+            <Link href="/get-a-quote" className="bg-transparent border-white text-white hover:text-black hover:bg-white transition duration-300">
               Get a Quote
             </Link>
           </Button>
           <Button asChild variant="outline" size="lg">
-            <Link href="#contact" className="bg-transparent border-white text-white hover:bg-white hover:text-blue-900 transition duration-300">
+            <Link href="#contact" className="bg-transparent border-white text-white hover:text-black hover:bg-white transition duration-300">
               Contact Us
             </Link>
           </Button>
