@@ -15,7 +15,7 @@ const Hero = () => {
   });
 
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+  const opacity = useTransform(scrollYProgress, [2, 1], [1, 0.5]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
 
   const features = [
@@ -26,12 +26,12 @@ const Hero = () => {
   ];
 
   return (
-    <section ref={heroRef} className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-r from-blue-900 to-blue-700">
+    <section ref={heroRef} className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-r from-blue-100 to-black">
       <motion.div 
         style={{ y, opacity, scale }} 
         className="absolute inset-0 z-0"
       >
-        <Image src="/trucking-hero.jpg" alt="Trucking on Canadian highway" layout="fill" objectFit="cover" quality={100} priority />
+        <Image src="/assets/hero.jpg" alt="Trucking on Canadian highway" layout="fill" objectFit="cover" quality={100} priority />
       </motion.div>
       <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
       <div className="relative z-20 text-center text-white max-w-5xl mx-auto px-6">
@@ -76,7 +76,7 @@ const Hero = () => {
         >
           {features.map((feature, index) => (
             <div key={index} className="flex flex-col items-center">
-              <feature.icon className="w-12 h-12 mb-4 text-blue-300" />
+              <feature.icon className="w-12 h-12 mb-4 text-blue-100" />
               <p className="text-sm font-medium">{feature.text}</p>
             </div>
           ))}

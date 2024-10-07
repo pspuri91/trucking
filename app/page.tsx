@@ -12,7 +12,7 @@ import Footer from '@/components/Footer';
 export default async function Home() {
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
+      <Header defClass="text-gray-100 hover:text-blue-400"/>
       <main className="flex-grow">
         <Hero />
         <Stats />

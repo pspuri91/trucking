@@ -84,7 +84,7 @@ export default function GetAQuote() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
+      <Header/>
       <main className="flex-grow pt-24">
         <motion.section 
           className="py-20 bg-white"
