@@ -31,14 +31,14 @@ const Hero = () => {
         style={{ y, opacity, scale }} 
         className="absolute inset-0 z-0"
       >
-        <Image src="/assets/hero.jpg" alt="Trucking on Canadian highway" layout="fill" objectFit="cover" quality={100} priority />
+        <Image src="/assets/hero.webp" alt="Trucking on Canadian highway" layout="fill" objectFit="cover" quality={100} priority />
       </motion.div>
       <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
       <div className="relative z-20 text-center text-white max-w-5xl mx-auto px-6">
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.3 }}
           className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
         >
           Experience Reliable Truckload Shipping
@@ -46,7 +46,7 @@ const Hero = () => {
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.3, delay: 0.1 }}
           className="text-xl md:text-2xl mb-10 font-light"
         >
           Your Trusted Transportation Partner Since 2010
@@ -54,16 +54,16 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.3, delay: 0.1 }}
           className="flex justify-center space-x-4"
         >
-          <Button asChild size="lg">
-            <Link href="/get-a-quote" className="bg-blue-600 text-white hover:bg-blue-700 transition duration-300">
+          <Button asChild variant="outline" size="lg">
+            <Link href="/get-a-quote" className="bg-transparent border-white text-white hover:text-black hover:bg-white transition duration-300">
               Get a Quote
             </Link>
           </Button>
           <Button asChild variant="outline" size="lg">
-            <Link href="#contact" className="bg-transparent border-white text-white hover:bg-white hover:text-blue-900 transition duration-300">
+            <Link href="#contact" className="bg-transparent border-white text-white hover:text-black hover:bg-white transition duration-300">
               Contact Us
             </Link>
           </Button>

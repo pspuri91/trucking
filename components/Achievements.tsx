@@ -2,10 +2,16 @@
 
 import { motion } from 'framer-motion';
 import { TrendingUp } from 'lucide-react';
+import { useInView } from 'react-intersection-observer';
 
 const Achievements = () => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
-    <section id="achievements" className="py-20 bg-gradient-to-r from-blue-900 to-blue-700 text-white">
+    <section ref={ref} className={`py-20 bg-gradient-to-r from-blue-900 to-blue-700 text-white transition-opacity duration-500 ${inView ? 'opacity-100' : 'opacity-0'}`}>
       <div className="container mx-auto px-6 text-center">
         <h2 className="text-4xl font-bold mb-10">Built Trust by Completing Over</h2>
         <motion.div 

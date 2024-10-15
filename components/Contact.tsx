@@ -15,6 +15,10 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { supabase } from '../lib/supabaseClient'; // Adjust the path if necessary
+import { useState } from 'react'; // Import useState
+import Alert from '@mui/material/Alert';
+import Snackbar from '@mui/material/Snackbar';
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -30,6 +34,9 @@ const formSchema = z.object({
 })
 
 const Contact = () => {
+  const [errorMessage, setErrorMessage] = useState<string | null>(null); // State for error messages
+  const [openSnackbar, setOpenSnackbar] = useState(false); // State for Snackbar visibility
+  const [isLoading, setIsLoading] = useState(false); // State for loading
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -40,9 +47,40 @@ const Contact = () => {
     },
   })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
-    // Here you would typically send the form data to your server
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setErrorMessage(null); // Clear previous error messages
+    setIsLoading(true); // Set loading state to true
+
+    const { data: leadData, error: leadError } = await supabase
+      .from('leads')
+      .insert([
+        {
+          creation_date: new Date(),
+          name: values.name,
+          email: values.email,
+          phone_no: values.phone || null,
+          status: 'New',
+          channel: 'Web',
+          source: 'Contact Form',
+        },
+      ]);
+
+    setIsLoading(false); // Set loading state to false after the request completes
+
+    if (leadError) {
+      console.error('Error inserting lead:', leadError); // Log the error for debugging
+      if (leadError.code === '23505') { // Check for unique constraint violation
+        setErrorMessage("The email id you entered is already available in our records. Our team would get back to you as soon as possible if you raised a request earlier. Or you could try with a different email id.");
+      } else {
+        setErrorMessage("An unexpected error occurred. Please try again later.");
+      }
+      setOpenSnackbar(true); // Open the Snackbar
+      return; // Stop further execution
+    }
+
+    console.log('Lead submitted successfully:', leadData);
+    setErrorMessage(null); // Clear any previous error messages
+    // Optionally, reset the form or show a success message
   }
 
   const containerVariants = {
@@ -142,9 +180,19 @@ const Contact = () => {
                   </FormItem>
                 )}
               />
-              <Button type="submit">Send Message</Button>
+              <Button type="submit" disabled={isLoading}>Send Message</Button>
             </form>
           </Form>
+          <Snackbar 
+            open={openSnackbar} 
+            autoHideDuration={6000} 
+            onClose={() => setOpenSnackbar(false)} 
+            anchorOrigin={{ vertical: 'top', horizontal: 'center' }} // Positioning the Snackbar at the top center
+          >
+            <Alert onClose={() => setOpenSnackbar(false)} severity="error" sx={{ width: '100%' }}>
+              {errorMessage}
+            </Alert>
+          </Snackbar>
         </motion.div>
       </div>
     </motion.section>

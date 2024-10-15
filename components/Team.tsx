@@ -8,12 +8,12 @@ const Team = () => {
     {
       name: "Charan Chatwal",
       role: "CEO & Director",
-      image: "/assets/owner.jpg"
+      image: "/assets/owner.webp"
     },
     {
       name: "Taran Chatwal",
       role: "Advisor",
-      image: "/assets/advisor.jpg"
+      image: "/assets/advisor.webp"
     }
   ];
 
