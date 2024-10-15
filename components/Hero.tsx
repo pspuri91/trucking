@@ -58,12 +58,12 @@ const Hero = () => {
           className="flex justify-center space-x-4"
         >
           <Button asChild variant="outline" size="lg">
-            <Link href="/get-a-quote" className="bg-transparent border-white text-white hover:text-black hover:bg-white transition duration-300">
+            <Link href="/get-a-quote" className="bg-transparent border-white text-white hover:text-black hover:bg-white transition duration-10">
               Get a Quote
             </Link>
           </Button>
           <Button asChild variant="outline" size="lg">
-            <Link href="#contact" className="bg-transparent border-white text-white hover:text-black hover:bg-white transition duration-300">
+            <Link href="#contact" className="bg-transparent border-white text-white hover:text-black hover:bg-white transition duration-10">
               Contact Us
             </Link>
           </Button>
@@ -71,7 +71,7 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.3, delay: 0.6 }}
           className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8"
         >
           {features.map((feature, index) => (
@@ -82,7 +82,7 @@ const Hero = () => {
           ))}
         </motion.div>
       </div>
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20">
+      <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 z-20">
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 1.5 }}

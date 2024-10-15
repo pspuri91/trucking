@@ -67,7 +67,7 @@ const Stats = () => {
               <h3 className="text-5xl font-bold text-blue-900 mb-2">{stat.title}</h3>
               <p className="text-gray-600 text-lg">{stat.description}</p>
               <motion.div 
-                className="absolute inset-0 bg-blue-900 text-white p-6 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                className="absolute inset-0 bg-blue-900 text-white p-6 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-100"
                 initial={{ opacity: 0 }}
                 whileHover={{ opacity: 1 }}
               >

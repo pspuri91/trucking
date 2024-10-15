@@ -35,7 +35,7 @@ const Header = ({defClass=""}) => {
 
   return (
     <motion.header 
-      className={`fixed w-full z-50 transition-all duration-300 ${
+      className={`fixed w-full z-50 transition-all duration-10 ${
         isScrolled ? 'bg-white bg-opacity-95 backdrop-blur-md shadow-lg' : 'bg-transparent'
       }`}
       initial={{ y: -100 }}
@@ -50,11 +50,11 @@ const Header = ({defClass=""}) => {
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               item.href === '/get-a-quote' ? (
-                <Button key={item.href} asChild variant="outline" className="bg-white text-gray-700 hover:text-white hover:bg-blue-900 transition duration-300">
+                <Button key={item.href} asChild variant="outline" className="bg-white text-gray-700 hover:text-white hover:bg-blue-900 transition duration-10">
                   <Link href={item.href}>{item.label}</Link>
                 </Button>
               ) : (
-                <Link key={item.href} href={item.href} className={`${isScrolled ? 'text-gray-700 hover:text-blue-600' : defCls }  transition duration-300`}>
+                <Link key={item.href} href={item.href} className={`${isScrolled ? 'text-gray-700 hover:text-blue-600' : defCls }  transition duration-10`}>
                   {item.label}
                 </Link>
               )
@@ -71,7 +71,7 @@ const Header = ({defClass=""}) => {
               <SheetTitle>Menu</SheetTitle>
               <div className="flex flex-col space-y-4 mt-4">
                 {navItems.map((item) => (
-                  <Link key={item.href} href={item.href} className="text-gray-700 hover:text-blue-600 transition duration-300">
+                  <Link key={item.href} href={item.href} className="text-gray-700 hover:text-blue-600 transition duration-10">
                     {item.label}
                   </Link>
                 ))}

@@ -11,14 +11,14 @@ const Achievements = () => {
   });
 
   return (
-    <section ref={ref} className={`py-20 bg-gradient-to-r from-blue-900 to-blue-700 text-white transition-opacity duration-500 ${inView ? 'opacity-100' : 'opacity-0'}`}>
+    <section ref={ref} className={`py-20 bg-gradient-to-r from-blue-900 to-blue-700 text-white transition-opacity duration-300 ${inView ? 'opacity-100' : 'opacity-0'}`}>
       <div className="container mx-auto px-6 text-center">
         <h2 className="text-4xl font-bold mb-10">Built Trust by Completing Over</h2>
         <motion.div 
           className="text-7xl font-bold mb-8"
           initial={{ scale: 0.5, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3 }}
           viewport={{ once: true }}
         >
           <TrendingUp className="inline-block w-20 h-20 mr-4" />
